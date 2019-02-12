@@ -1,0 +1,20 @@
+---
+   - 
+     name: Create virtual network
+     azure_rm_virtualnetwork:
+      resource_group: "{{ resource_group }}"
+      name: "{{ vmss_name }}"
+      address_prefixes: "{{ vnetaddprefix }}"
+   - 
+     name: Add subnet
+     azure_rm_subnet:
+      resource_group: "{{ resource_group }}"
+      name: "{{ vmss_name }}"
+      address_prefix: "{{ vnetaddprefix }}"
+      virtual_network: "{{ vmss_name }}"
+   - 
+     name: Create public IP address
+     azure_rm_publicipaddress:
+      resource_group: "{{ resource_group }}"
+      allocation_method: "{{ allocation_method }}"
+      name: "{{ vmss_name }}"
