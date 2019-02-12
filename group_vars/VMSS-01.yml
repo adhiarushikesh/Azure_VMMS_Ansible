@@ -1,0 +1,8 @@
+# all varaiables
+    resource_group: RG1
+    vmss_name: "{{resource_group}}VMSS01"
+    vmss_lb_name: "{{ vmss_name }}lb"
+    location: southeastasia
+    admin_username: tadmin
+    #admin_password: "your_password"
+    admin_password: "PL@net01"

@@ -6,7 +6,7 @@
    location: southeastasia
    admin_username: tadmin
   #admin_password: "your_password"
-   #to be updated with Vault
+   #to be updated with Vault azure/ansiblr
    admin_password: "PL@net01"
   roles:
    - resourcegroup

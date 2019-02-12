@@ -1,0 +1,22 @@
+- hosts: localhost
+  vars:
+    resource_group: RG1
+    vmss_name: "{{resource_group}}VMSS01"
+  tasks: 
+    - name: Get scaleset info
+      azure_rm_virtualmachine_scaleset_facts:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        format: curated
+      register: output_scaleset
+
+    - name: Dump scaleset info
+      debug:
+        var: output_scaleset
+
+    - name: Modify scaleset (change the capacity to 2)
+      set_fact:
+        body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 2}, recursive=True) }}"
+
+    - name: Update something in that VMSS
+      azure_rm_virtualmachine_scaleset: "{{ body }}"
