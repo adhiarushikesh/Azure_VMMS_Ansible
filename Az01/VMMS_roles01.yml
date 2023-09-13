@@ -7,7 +7,7 @@
    admin_username: tadmin
   #admin_password: "your_password"
    #to be updated with Vault azure/ansible file
-   admin_password: "PL@net01"
+   admin_password: "Build@2000"
   roles:
    - resourcegroup
    - vNet
